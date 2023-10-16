@@ -14,8 +14,8 @@ class NeuMF(DeepRecommender):
     def initModel(self):
         super(NeuMF, self).initModel()
         # parameters used are consistent with default settings in the original paper
-        mlp_regularizer = tf.contrib.layers.l2_regularizer(scale=0.001)
-        initializer = tf.contrib.layers.xavier_initializer()
+        mlp_regularizer = tf.compat.v1.estimator.layers.l2_regularizer(scale=0.001)
+        initializer = tf.compat.v1.estimator.layers.xavier_initializer()
         with tf.variable_scope("latent_factors"):
             self.PG = tf.get_variable(name='PG', initializer=initializer([self.num_users, self.emb_size]))
             self.QG = tf.get_variable(name='QG', initializer=initializer([self.num_items, self.emb_size]))

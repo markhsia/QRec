@@ -2,7 +2,9 @@
 from base.deepRecommender import DeepRecommender
 import numpy as np
 from random import randint
-import tensorflow as tf
+#import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 class NeuMF(DeepRecommender):
 
